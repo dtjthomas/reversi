@@ -1,7 +1,7 @@
 # Reversi
 ## Installation: 
 1. Clone the repository \
-        `git clone [url]`
+        `git clone https://github.com/dtjthomas/reversi.git`
 2. Run the script \
     `python3 player.py`
 
