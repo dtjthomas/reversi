@@ -3,7 +3,7 @@
 1. Clone the repository \
         `git clone https://github.com/dtjthomas/reversi.git`
 2. Run the script \
-    `python3 player.py`
+    `python3 reversi.py`
 
 ## How to play:
 ### Overview:
