@@ -56,13 +56,19 @@ class Person(Player):
         self.board = board
     
     """Represents human players"""
-    def takeTurn(self):
+    def takeTurn(self, validMove=None):
+
+        # used for updated players board for online play
+        if validMove != None:
+            self.placePiece(validMove)
+            return
+
         self.board.output()
         columns = "ABCDEFGH"
         validMoves = self.getValidMoves()
         if len(validMoves) == 0:
             print("Your turn is skipped. You have no possible moves")
-            return
+            return None
         else:
             while True:
                 try:
@@ -75,10 +81,13 @@ class Person(Player):
                     elif len(decision) == 2 and decision[0] in columns and int(decision[1]) > 0 and \
                         int(decision[1]) < 9:
                         self.placePiece(decision)
-                        return
+                        self.board.output()
+                        return decision
                     else:
                         print("Your input is not a position [Col, Row], see [v]alid moves or" + \
                         "[q]uit\n")
                 except invalidPlacementError:
                     print("Invalid move.\n")
                     continue
+
+    
